@@ -3,11 +3,11 @@ var app = express();
 
 app.use(express.static('public'));
 
-app.get('/rest/hello', function (req, res) {
+app.get('/api/hello', function (req, res) {
   res.json({reply: 'Hello World!'});
 });
 
 app.listen(3000, function () {
-  console.log('Starting app);
+  console.log('Starting app');
 });
 
