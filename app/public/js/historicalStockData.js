@@ -1,8 +1,3 @@
-var FBjson;
-var GOOGjson;
-var TWTRjson;
-var LNKDjson;
-
 var callback = function(_return /* The json returned for yahooapis */) {
     var totalReturned = _return.query.count;
     //OR: var totalReturned = _return.query.results.quote.length;
@@ -18,7 +13,6 @@ var callback = function(_return /* The json returned for yahooapis */) {
         dateCell.innerHTML = stock.Date;
         closeCell.innerHTML = stock.Close;
     }
-    return _return;
 }
 
 function queryStockData(symbol) {
@@ -28,8 +22,3 @@ function queryStockData(symbol) {
 	var data = encodeURIComponent('select * from yahoo.finance.historicaldata where symbol = "' + symbol + '" and startDate = "' + startDate + '" and endDate = "' + endDate + '"');
 	$.getJSON(url, 'q=' + data + "&env=http%3A%2F%2Fdatatables.org%2Falltables.env&format=json", callback);
 }
-
-FBjson = queryStockData("FB");
-GOOGjson = queryStockData("GOOG");
-TWTRjson = queryStockData("TWTR");
-LNKDjson = queryStockData("LNKD");
